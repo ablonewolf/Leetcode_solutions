@@ -16,7 +16,6 @@ public:
             return memArray[i][column1][column2];
 
         int result = 0;
-
         for (int k = 0; k < 3; k++) {
             for (int r = 0; r < 3; r++) {
                 result = max(result, dfs(grid, i + 1, column1 + possibleWays[k], column2 + possibleWays[r], rows, cols));
@@ -26,6 +25,8 @@ public:
         result += (column1 == column2) ? grid[i][column1] : grid[i][column1] + grid[i][column2];
         return memArray[i][column1][column2] = result;
     }
+
+
     int cherryPickup(vector<vector<int>>& grid) {
         int rows = grid.size(); // rows
         if (!rows)
