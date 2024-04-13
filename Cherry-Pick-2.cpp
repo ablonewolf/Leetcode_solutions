@@ -10,7 +10,8 @@ public:
     int dfs(vector<vector<int>>& grid, int i, int column1, int column2, int rows, int cols) {
         if (i == rows)
             return 0;
-        if (column1 < 0 || column2 < 0 || column1 >= cols || column2 >= cols)
+        if (column1 < 0 || column2 < 0 ||
+         column1 >= cols || column2 >= cols)
             return INT_MIN;
         if (memArray[i][column1][column2] != -1)
             return memArray[i][column1][column2];
