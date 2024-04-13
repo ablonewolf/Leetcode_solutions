@@ -57,7 +57,8 @@ public:
     stack<int> monotonicStack;
 
     for (int i = 0; i < size; i++) {
-      while (!monotonicStack.empty() && (i == size - 1 || heights[monotonicStack.top()] >= heights[i])) {
+      while (!monotonicStack.empty() &&
+          (i == size - 1 || heights[monotonicStack.top()] >= heights[i])) {
         int height = heights[monotonicStack.top()];
         monotonicStack.pop();
         int width = monotonicStack.empty() ? i : i - monotonicStack.top() - 1;
