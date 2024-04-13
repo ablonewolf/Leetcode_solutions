@@ -69,3 +69,10 @@ public:
     return maxArea;
   }
 };
+
+int main() {
+  Solution so;
+  vector<int> heights = { 2, 3, 1, 5, 6, 2, 4 };
+  int area = so.largestRectangleArea(heights);
+  cout << "Max rectangular histogram area: " << area << endl;
+}
