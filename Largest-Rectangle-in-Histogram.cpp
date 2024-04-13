@@ -4,6 +4,10 @@ using namespace std;
 class Solution {
 public:
   int largestRectangleArea(vector<int>& heights) {
+    return singlePassSolution(heights);
+  }
+
+  int multiPassSolution(vector<int>& heights) {
     int size = heights.size();
 
     stack<int> monotonicStack;
@@ -45,6 +49,23 @@ public:
     }
 
     return maxArea;
+  }
 
+  int singlePassSolution(vector<int>& heights) {
+    int size = heights.size();
+    int maxArea = 0;
+    stack<int> monotonicStack;
+
+    for (int i = 0; i < size; i++) {
+      while (!monotonicStack.empty() && (i == size - 1 || heights[monotonicStack.top()] >= heights[i])) {
+        int height = heights[monotonicStack.top()];
+        monotonicStack.pop();
+        int width = monotonicStack.empty() ? i : i - monotonicStack.top() - 1;
+        maxArea = max(maxArea, width * height);
+      }
+      monotonicStack.push(i);
+    }
+
+    return maxArea;
   }
 };
