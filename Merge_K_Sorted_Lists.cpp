@@ -16,8 +16,8 @@ public:
       return second;
     if (!second)
       return first;
-    ListNode* ans = new ListNode(-1);
-    ListNode* temp = ans;
+    ListNode* answer = new ListNode(-1);
+    ListNode* temp = answer;
     while (first && second) {
       if (first->val < second->val) {
         temp->next = first;
@@ -39,7 +39,7 @@ public:
       temp = temp->next;
       second = second->next;
     }
-    return ans->next;
+    return answer->next;
   }
 
   ListNode* mergeKLists(vector<ListNode*>& lists) {
