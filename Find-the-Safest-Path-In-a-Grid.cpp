@@ -36,7 +36,7 @@ public:
                     continue;
                 } else {
                     grid[newX][newY] = 1 + distance;
-                    distances.push({ newX, newY, 1 + distance });
+                    distances.push({ newX, newY, grid[newX][newY] });
                 }
             }
 
